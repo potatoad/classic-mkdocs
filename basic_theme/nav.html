@@ -2,16 +2,26 @@
 
 -->
 {% if not nav_item.children %}
-<li {% if nav_item.active %}class="active"{% endif %}>
-    <a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
+<li {% if nav_item.active %}class="active" {% endif %}>
+  <div role="treeitem" class="icon">
+    <img src="{{ "os9-icons/png/87.png"|url }}">
+    <div class="icon-label">
+      <a href="{{ nav_item.url|url }}">{{ nav_item.title}}</a>
+    </div>
+  </div>
 </li>
 {% else %}
-  <li>
-    {{ nav_item.title }}
+<li>
+  <details open>
+    <summary class="icon" role="treeitem">
+      <img src="{{ "os9-icons/png/24.png"|url }}">
+      <div class="icon-label">{{ nav_item.title }}</div>
+    </summary>
     <ul>
-        {% for nav_item in nav_item.children %}
-            {% include "nav.html" %}
-        {% endfor %}
+      {% for nav_item in nav_item.children %}
+      {% include "nav.html" %}
+      {% endfor %}
     </ul>
-  </li>
+  </details>
+</li>
 {% endif %}

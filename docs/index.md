@@ -1,11 +1,21 @@
-# MkDocs Basic Theme
+# Welcome to my Homepage
 
-This is a very basic theme for MkDocs with the goal of demonstrating all of
-the features with minimal HTML and CSS.
+Hello, my name is Fig and this is my website. Welcome!
 
-## Adapting this theme
+![The author](images/DSC00056.JPG)
 
-If you want to use this theme as a base to create your own, it is best to
-download or fork the theme and start to modify it
+On here you can keep up to date with my latest projects, see pictures of my cat, and maybe find some fun things you can download!
 
-Make sure you read the MkDocs documentation regarding writing custom themes.
+## I Love to Make Things and Do Things
+
+My Mum's side of the family were really artistic, and my Dad is very practical; fixing things and building things from wood.
+
+Growing up in an environment like that meant I always had the materials, tools, and encouragement to follow my creative whims.
+
+---
+
+Once you're done here, maybe consider checking out one of these other cool sites:
+
+- [HackADay](https://hackaday.com/) - A web log of cool and interesting hacks as well as news from the tech world.
+
+- [National Library of Scotland Maps](https://maps.nls.uk/) - Amazing archive over hundreds of thousands of old maps of the UK (as well as some other places).

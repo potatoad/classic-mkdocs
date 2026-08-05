@@ -1,0 +1,11 @@
+ignore:
+  - "index.md"
+  - "about.md"
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Projects:
+    - glob: "projects/*.md*"
+      sort:
+        direction: asc

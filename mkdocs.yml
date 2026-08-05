@@ -1,5 +1,34 @@
-site_name: MkDocs Basic theme
-repo_url: https://github.com/mkdocs/mkdocs-basic-theme
-
+site_name: Fig's Homepage
 theme:
-    name: basictheme
+  name: null
+  locale: en
+  custom_dir: 'basic_theme/'
+  static_templates:
+    - search.html
+plugins:
+  - search
+  - awesome-nav
+markdown_extensions:
+  - attr_list
+  - window_image
+copyright: Copyright &copy; 2026 Potatoad
+extra:
+  social:
+    - type: github
+      link: https://github.com/potatoad
+      name: GitHub
+  links:
+    - https://hackaday.com/
+    - https://maps.nls.uk/
+    - https://freedeedpoll.org.uk/
+  icons:
+    - gears-0.png
+    - world-0.png
+    - message_file-0.png
+  titles:
+    - HackADay
+    - Old Maps
+    - Free Deed Poll
+watch:
+    - basic_theme
+    - basic_theme/css

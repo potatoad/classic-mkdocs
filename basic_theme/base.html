@@ -1,11 +1,5 @@
-<!--
-  This Basic theme serves as an example for how to create other
-  themes by demonstrating the features with minimal HTML and CSS.
-  Comments like this will be through the code to explain briefly
-  what each feature is and point you to the MkDocs documentation
-  to find out more.
--->
 <!DOCTYPE html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,41 +11,25 @@
   -->
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
 
-  <!--
-    Just add a favicon.ico image to the docs.
-  -->
-     <link rel="shortcut icon" href="{{ "img/favicon.ico"|url }}">
+  <link rel="shortcut icon" href="{{ "img/favicon.ico"|url }}">
 
-
-  <!--
-    You can include external assets of course, but be aware that it means the
-    documentation may not work well offline.
-  -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
 
   <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
+  <link rel="preload" href="{{ "Charcoal12.woff"|url }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ "Monaco.woff"|url }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ "ChicagoFLF.woff"|url }}" as="font" type="font/woff" crossorigin>
 
-  <!--
-    extra_css contains paths to CSS files in the users
-    documentation directory or a list of CSS files defined in
-    their mkdocs.yml.
-
-    http://www.mkdocs.org/user-guide/configuration/#extra_css
-  -->
   {% for path in config.extra_css %}
-    <link href="{{ path|url }}" rel="stylesheet">
+  <link href="{{ path|url }}" rel="stylesheet">
   {% endfor %}
 
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
   <!--
     To include static assets from our theme, just make the path
     relative to the root of the documentation with `|url`.
   -->
-  <script src="{{ "js/theme.js"|url }}"></script>
 
   {% block extrahead %}
   {% endblock %}
@@ -64,134 +42,133 @@
     http://www.mkdocs.org/user-guide/configuration/#extra_javascript
   -->
   {% for script in config.extra_javascript %}
-    {{ script | script_tag }}
+  {{ script | script_tag }}
   {% endfor %}
-
-  <!--
-    Include Google Analytics tracking code.
-
-    http://www.mkdocs.org/user-guide/configuration/#google_analytics
-  -->
-  {% if config.google_analytics %}
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
-      ga('send', 'pageview');
-  </script>
-  {% endif %}
 
 </head>
 
-<body>
+<body class="flex-column use-preferred-font">
 
-  <h1>This is an example theme for MkDocs.</h1>
-
-  <p>
-    It is designed to be read by looking at the theme HTML which is heavily
-    commented. The easiest way to do that is by
-    <strong><a href="https://github.com/mkdocs/mkdocs-basic-theme/tree/master/basic_theme">
-    looking at the source on GitHub.</a></strong>. Otherwise this is just a
-    demonstration that the theme is fully functional.
-  </p>
-
-  <hr/>
-
-  <h2>Documentation Navigation</h2>
-
-  <!--
-    Create the navigation for the documentation.
-
-    Because we don't know how many levels deep the navigation is, it needs to
-    be included in it's own file so it can be recursive. Otherwise the theme
-    can also only support a specific number of levels.
-
-    See the nav.html file for more details about how this works.
-  -->
-  <ul>
-  {% for nav_item in nav %}
-    {% include "nav.html" %}
-  {% endfor %}
-  </ul>
-
-  <hr/>
-
-  <h2>Support for search</h2>
-  <!--
-    Create a search form that sends the user to the search.html file - this is
-    the other file in the template which adds search to the theme. The only
-    requirement here is that there is a text input with the name 'q' and the
-    action and methods match below.
-  -->
-  <div role="search">
-    <form action="{{ "search.html"|url }}" method="get">
-      <input type="search" name="q" placeholder="Search docs" />
-    </form>
-  </div>
-
-  <hr/>
-
-  <h2>Next and previous links</h2>
-  <!--
-    Implement the previous and next links to cycle through the pages.
-  -->
-  {% if page.next_page or page.previous_page %}
-    <div>
-      {% if page.previous_page %}
-        <a href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}">&#8592; Previous Page</a>
-      {% else %}
-        &#8592; Previous Page
-      {% endif %}
-      -
-      {% if page.next_page %}
-        <a href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"/>Next Page &#8594;</a>
-      {% else %}
-        Next Page &#8594;
-      {% endif %}
+    <div id="toolbar" class="top-panel flex-row gap align-center padding">
+      <img src="{{ "os9-icons/png/apple32.png"|url }}">
+      <div class="site-name">{{ config.site_name }}</div>
+      <div>
+        <div role="search">
+            <form action="{{ "search.html"|url }}" method="get" class="search-form">
+              <input type="search" name="q" placeholder="Search"> <button>Search</button>
+            </form>
+          </div>
+          
+      </div>
     </div>
-  {% endif %}
 
-  <hr/>
+    <div class="desktop grow">
+      <div class="container">
+        <div class="left-col">
+          <main class="margin window active content">
+            <div class="title-bar">
+              <div class="title-bar-text">
+                {{page.title}}
+              </div>
+                <div class="title-bar-buttons">
+                  <button data-close=""></button>
+                </div>
+            </div>
+            <div class="window-body">
+              <div class="padding">
 
-  <h2>Link to the source</h2>
-  <!--
-    Support repo URL
-  -->
-  {% if page and page.edit_url %}
-    <a href="{{ page.edit_url }}">Edit on {{ config.repo_name }}</a>
-  {% elif config.repo_url %}
-    <a href="{{ config.repo_url }}">{{ config.repo_name }}</a>
-  {% endif %}
+                {% block content %}
+                {{ page.content }}
+                {% endblock %}
 
-  <hr/>
+              </div>
+            </div>
+          </main>
+        </div>
 
-  <h2>Show the table of contents for the current page</h2>
-  <ul>
-  {% for toc_item in page.toc %}
-      <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-      {% for toc_item in toc_item.children %}
-          <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-      {% endfor %}
-  {% endfor %}
-  </ul>
+        <div class="right-col">
+          <div id="sidebar">
+            <div class="margin window active">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Table of Contents
+                </div>
+              </div>
+              <div class="window-body">
+                <div class="list sidebar-content">
+                  <ul role="tree">
+                    {% for toc_item in page.toc %}
+                    <li>
+                      <div role="treeitem" class="icon">
+                        <img src="{{ "os9-icons/png/79.png"|url }}">
+                        <div class="icon-label"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></div>
+                      </div>
+                    </li>
+                    {% for toc_item in toc_item.children %}
+                    <li>
+                      <div role="treeitem" class="icon">
+                        <img src="{{ "os9-icons/png/79.png"|url }}">
+                        <div class="icon-label">
+                          <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                        </div>
+                      </div>
+                    </li>
+                    {% endfor %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-  <hr/>
+            <div class="margin window active">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Navigation
+                </div>
+              </div>
+              <div class="window-body">
+                <div class="list sidebar-content">
+                  <ul role="tree">
+                    {% for nav_item in nav %}
+                    {% include "nav.html" %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-  {% block content %}
-    {{ page.content }}
-  {% endblock %}
+            <div class="margin window active">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Cool Links
+                </div>
+              </div>
 
-  <hr/>
+              {% if config.extra.links %}
+              <div class="window-body">
+                <div class="list" style="max-height: 200px;" role="listbox" aria-multiselectable="true">
+                  <div class="icon-grid">
+                    {% for link in config.extra.links %}
+                    <div class="icon" role="option">
+                      <a href="{{ link }}" target="_blank">
+                        <img src="{{ "windows98-icons/png/"|url}}{{config.extra.icons[loop.index0]}}">
+                      </a>
+                      <div class="icon-label"><a href="{{ link }}" target="_blank">{{ config.extra.titles[loop.index0]
+                          }}</a></div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                {% endif %}
 
-  Built with <a href="https://www.mkdocs.org">MkDocs</a>.
+              </div>
+            </div>
 
-  <!--
-  MkDocs version      : {{ mkdocs_version }}
-  Docs Build Date UTC : {{ build_date_utc }}
-  -->
-
+          </div>
+        </div>
+      </div>
+  </div>
+  <script src="{{ "js/lists.js"|url }}"></script>
 </body>
+
 </html>
