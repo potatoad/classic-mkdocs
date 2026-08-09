@@ -18,8 +18,10 @@ class WindowImageProcessor(Treeprocessor):
         for parent, child in targets:
             # Find exactly where the image is inside its parent
             index = list(parent).index(child)
-            filename = child.attrib.get("src", "image")
-            
+            filepath = child.attrib.get("src", "image")
+            filename = urllib.parse.unquote(Path(filepath).name).replace(" ", "_")
+            print(f"{index} - {filename}")
+
             # Create the outer "window" div
             window_div = etree.Element(
                 "div",
@@ -34,10 +36,22 @@ class WindowImageProcessor(Treeprocessor):
             title_bar_text = etree.SubElement(
                 title_bar, "div", {"class": "title-bar-text"}
             )
-            title_bar_text.text = urllib.parse.unquote(Path(filename).name)
+            title_bar_buttons = etree.SubElement(
+                title_bar, "div", {"class": "title-bar-buttons"}
+            )
+
+            title_bar_text.text = filename
 
             # Create the window body
-            window_body = etree.SubElement(window_div, "div", {"class": "window-body window-image"})
+            window_body = etree.SubElement(
+                window_div,
+                "div",
+                {"class": "window-body window-image", "id": f'{filename}'},
+            )
+
+            title_bar_minimise_button = etree.SubElement(
+                title_bar_buttons, "button", {"onClick": f'toggleImg("{filename}")'}
+            )
 
             # Move the original <img> element inside the window-body div
             window_body.append(child)

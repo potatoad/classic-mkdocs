@@ -46,126 +46,148 @@
 
 <body class="flex-column use-preferred-font">
 
-    <div id="toolbar" class="top-panel flex-row gap align-center padding">
-      <img src="{{ "os9-icons/png/apple32.png"|url }}">
-      <div class="site-name">{{ config.site_name }}</div>
-      <div>
-        <div role="search">
-            <form action="{{ "search.html"|url }}" method="get" class="search-form">
-              <input type="search" name="q" placeholder="Search"> <button>Search</button>
-            </form>
-          </div>
-          
+  <div id="toolbar" class="top-panel flex-row gap align-center padding">
+    <img src="{{ "os9-icons/png/apple32.png"|url }}">
+    <div class="site-name">{{ config.site_name }}</div>
+    <div>
+      <div role="search">
+        <form action="{{ "search.html"|url }}" method="get" class="search-form">
+          <input type="search" name="q" placeholder="Search"> <button>Search</button>
+        </form>
       </div>
-    </div>
 
-    <div class="desktop grow">
-      <div class="container">
-        <div class="left-col">
-          <main class="margin window active content">
+    </div>
+  </div>
+
+  <div class="desktop grow">
+    <div class="container">
+      <div class="left-col">
+
+          <div class="margin window active">
             <div class="title-bar">
               <div class="title-bar-text">
-                {{page.title}}
+                Navigation
               </div>
-                <div class="title-bar-buttons">
-                  <button data-close=""></button>
-                </div>
+
+            <div class="title-bar-buttons">
+              <button onclick="toggleImg('nav-window')"></button>
             </div>
-            <div class="window-body">
-              <div class="padding main-container">
-
-                {% block content %}
-                {{ page.content }}
-                {% endblock %}
-
-              </div>
             </div>
-          </main>
-        </div>
-
-        <div class="right-col">
-          <div id="sidebar">
-            <div class="margin window active">
-              <div class="title-bar">
-                <div class="title-bar-text">
-                  Table of Contents
-                </div>
-              </div>
-              <div class="window-body">
-                <div class="list sidebar-content">
-                  <ul role="tree">
-                    {% for toc_item in page.toc %}
-                    <li>
-                      <div role="treeitem" class="icon">
-                        <img src="{{ "os9-icons/png/79.png"|url }}">
-                        <div class="icon-label"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></div>
-                      </div>
-                    </li>
-                    {% for toc_item in toc_item.children %}
-                    <li>
-                      <div role="treeitem" class="icon">
-                        <img src="{{ "os9-icons/png/79.png"|url }}">
-                        <div class="icon-label">
-                          <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                        </div>
-                      </div>
-                    </li>
-                    {% endfor %}
-                    {% endfor %}
-                  </ul>
-                </div>
+            <div class="window-body" id="nav-window">
+              <div class="list sidebar-content">
+                <ul role="tree">
+                  {% for nav_item in nav %}
+                  {% include "nav.html" %}
+                  {% endfor %}
+                </ul>
               </div>
             </div>
-
-            <div class="margin window active">
-              <div class="title-bar">
-                <div class="title-bar-text">
-                  Navigation
-                </div>
-              </div>
-              <div class="window-body">
-                <div class="list sidebar-content">
-                  <ul role="tree">
-                    {% for nav_item in nav %}
-                    {% include "nav.html" %}
-                    {% endfor %}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="margin window active">
-              <div class="title-bar">
-                <div class="title-bar-text">
-                  Cool Links
-                </div>
-              </div>
-
-              {% if config.extra.links %}
-              <div class="window-body">
-                <div class="list" style="max-height: 200px;" role="listbox" aria-multiselectable="true">
-                  <div class="icon-grid">
-                    {% for link in config.extra.links %}
-                    <div class="icon" role="option">
-                      <a href="{{ link }}" target="_blank">
-                        <img src="{{ "windows98-icons/png/"|url}}{{config.extra.icons[loop.index0]}}">
-                      </a>
-                      <div class="icon-label"><a href="{{ link }}" target="_blank">{{ config.extra.titles[loop.index0]
-                          }}</a></div>
-                    </div>
-                    {% endfor %}
-                  </div>
-                </div>
-                {% endif %}
-
-              </div>
-            </div>
-
           </div>
+
+          <div class="margin window active">
+            <div class="title-bar">
+              <div class="title-bar-text">
+                Cool Links
+              </div>
+            <div class="title-bar-buttons">
+              <button onclick="toggleImg('links-window')"></button>
+            </div>
+            </div>
+
+            {% if config.extra.links %}
+            <div class="window-body" id="links-window">
+              <div class="list" style="max-height: 200px;" role="listbox" aria-multiselectable="true">
+                <div class="icon-grid">
+                  {% for link in config.extra.links %}
+                  <div class="icon" role="option">
+                    <a href="{{ link }}" target="_blank">
+                      <img src="{{ "windows98-icons/png/"|url}}{{config.extra.icons[loop.index0]}}">
+                    </a>
+                    <div class="icon-label"><a href="{{ link }}" target="_blank">{{ config.extra.titles[loop.index0]
+                        }}</a></div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endif %}
+
+            </div>
+          </div>
+
+      </div>
+
+      <div class="mid-col">
+        <main class="margin window active content">
+          <div class="title-bar">
+            <div class="title-bar-text">
+              {{page.title}}
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="padding main-container">
+
+              {% block content %}
+              {{ page.content }}
+              {% endblock %}
+
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <div class="right-col">
+        <div id="sidebar">
+
+          
+
+          <div class="margin window active">
+            <div class="title-bar">
+              <div class="title-bar-text">
+                Table of Contents
+              </div>
+            <div class="title-bar-buttons">
+              <button onclick="toggleImg('toc-window')"></button>
+            </div>
+            </div>
+            <div class="window-body" id="toc-window">
+              <div class="list sidebar-content">
+                <ul role="tree">
+                  {% for toc_item in page.toc %}
+                  <li>
+                    <div role="treeitem" class="icon">
+                      <img src="{{ "os9-icons/png/79.png"|url }}">
+                      <div class="icon-label"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></div>
+                    </div>
+                  </li>
+                  {% for toc_item in toc_item.children %}
+                  <li>
+                    <div role="treeitem" class="icon">
+                      <img src="{{ "os9-icons/png/79.png"|url }}">
+                      <div class="icon-label">
+                        <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                      </div>
+                    </div>
+                  </li>
+                  {% endfor %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+         
+
         </div>
       </div>
+    </div>
   </div>
   <script src="{{ "js/lists.js"|url }}"></script>
+  <script lang="JavaScript">
+    const toggleImg = (id) => {
+      const img = document.getElementById(id)
+      img.classList.contains('zero-height') ? img.classList.remove('zero-height') : img.classList.add('zero-height')
+    }
+  </script>
 </body>
 
 </html>

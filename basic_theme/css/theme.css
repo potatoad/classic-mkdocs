@@ -166,8 +166,13 @@ a {
 }
 
 .left-col {
+  align-self: flex-start;
+  width: 300px;
+}
+
+.mid-col {
   align-self: stretch;
-  width: 1024px;
+  width: 960px;
 }
 
 .right-col {
@@ -179,10 +184,27 @@ a {
   position: fixed;
 }
 
+#toc-window li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#toc-window li::after{
+  padding-top: 1rem;
+}
+
 .list ul[role="tree"] .icon > .icon-label {
   text-align: left;
 }
 
 p > img {
   display: block;
+}
+
+div .window-body {
+  overflow: hidden;
+}
+
+.zero-height {
+  height: 0;
 }
