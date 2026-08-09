@@ -13,11 +13,8 @@
 
   <link rel="shortcut icon" href="{{ "img/favicon.ico"|url }}">
 
-
+  <link rel="stylesheet" href="{{ "fonts/fonts.css"|url }}">
   <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
-  <link rel="preload" href="{{ "Charcoal12.woff"|url }}" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="{{ "Monaco.woff"|url }}" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="{{ "ChicagoFLF.woff"|url }}" as="font" type="font/woff" crossorigin>
 
   {% for path in config.extra_css %}
   <link href="{{ path|url }}" rel="stylesheet">
@@ -75,7 +72,7 @@
                 </div>
             </div>
             <div class="window-body">
-              <div class="padding">
+              <div class="padding main-container">
 
                 {% block content %}
                 {{ page.content }}

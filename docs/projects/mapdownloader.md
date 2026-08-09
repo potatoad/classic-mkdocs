@@ -172,14 +172,14 @@ I had a look in Chrome dev tools and was pleasantly surprised to find a lot of t
 ### Features
 
 - **Interactive Mode:** Run without arguments for a guided CLI setup experience, or use command-line argumentfor scripting.
-**Multiple Map Series:** Choose from 11 different map series including modern OS maps, 1-inch - historicaeditions, Bartholomew maps, agriculture maps, and more.
+- **Multiple Map Series:** Choose from 11 different map series including modern OS maps, 1-inch - historicaeditions, Bartholomew maps, agriculture maps, and more.
 - **Place Name Search:** Use the Geocoding API to convert UK a place name or address into latitude anlongitude.
 - **Smart Fallback:** For OS 1:25k and OS 1:50k series, checks historical map dates (from present back to 2015if a tile is missing.
 - **Concurrent Processing:** Utilizes connection pooling and ThreadPoolExecutor to check and download hundredof tiles per second.
 - **Coordinate Support:** Target areas using explicit slippy map X/Y grids, or standard Latitude/Longitude wita tile radius.
-**Safe State Logging:** Successfully located tile URLs are logged to a text file in real-time. If the - scripcrashes, you don't lose your scan progress.
+- **Safe State Logging:** Successfully located tile URLs are logged to a text file in real-time. If the - scripcrashes, you don't lose your scan progress.
 - **Smart Chunking:** Stitches thousands of small 256x256 PNGs into large regional map chunks (e.g., 50x5grids) to prevent memory overflow and computer crashes.
-**Transparent Backgrounds:** Missing tiles are rendered as transparent (RGBA) rather than solid - blockspreserving perfect geographical alignment (where applicable).
+- **Transparent Backgrounds:** Missing tiles are rendered as transparent (RGBA) rather than solid - blockspreserving perfect geographical alignment (where applicable).
 - **File Format Options:** Stitched images can be exported in PNG, JPEG, and lossless WebP formats.
 
 ### What Next?
@@ -187,14 +187,14 @@ I had a look in Chrome dev tools and was pleasantly surprised to find a lot of t
 The project is in a working state and has reached the limit of my ability with Python right now, but there are a couple of directions I'd like to maybe take this in one day.
 
 - Web-based option
-  - Either translate the whole thing to JavaScript or work out how to call the python script from node.
-  - I'd prefer all the tiles to get downloaded by the client rather than the server, though, so my server's not generating an abnormal amount of traffic.
+    - Either translate the whole thing to JavaScript or work out how to call the python script from node.
+    - I'd prefer all the tiles to get downloaded by the client rather than the server, though, so my server's not generating an abnormal amount of traffic.
 
 - GUI
-  - It would be really nice to see a preview of the area you're trying to download.
-  - I would also want to package it into an executable for macOS and Windows.
+    - It would be really nice to see a preview of the area you're trying to download.
+    - I would also want to package it into an executable for macOS and Windows.
 
 - Choose radius in km rather than tiles
-  - Probably the simplest feature that I want to add.
-  - I just need to look into the conversion between metres and pixels at different latitudes.
+    - Probably the simplest feature that I want to add.
+    - I just need to look into the conversion between metres and pixels at different latitudes.
   

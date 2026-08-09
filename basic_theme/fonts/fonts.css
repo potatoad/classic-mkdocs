@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'DePixel';
+    src: url('DePixel-Breit.eot');
+    src: url('DePixel-Breit.eot?#iefix') format('embedded-opentype'),
+        url('DePixel-Breit.woff2') format('woff2'),
+        url('DePixel-Breit.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DePixel';
+    src: url('DePixel-BreitFett.eot');
+    src: url('DePixel-BreitFett.eot?#iefix') format('embedded-opentype'),
+        url('DePixel-BreitFett.woff2') format('woff2'),
+        url('DePixel-BreitFett.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DePixel';
+    src: url('DePixel-Bold.eot');
+    src: url('DePixel-Bold.eot?#iefix') format('embedded-opentype'),
+        url('DePixel-Bold.woff2') format('woff2'),
+        url('DePixel-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DePixel';
+    src: url('DePixel-Illegible.eot');
+    src: url('DePixel-Illegible.eot?#iefix') format('embedded-opentype'),
+        url('DePixel-Illegible.woff2') format('woff2'),
+        url('DePixel-Illegible.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DePixel';
+    src: url('DePixel-Klein.eot');
+    src: url('DePixel-Klein.eot?#iefix') format('embedded-opentype'),
+        url('DePixel-Klein.woff2') format('woff2'),
+        url('DePixel-Klein.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DePixel';
+    src: url('DePixel-Schmal.eot');
+    src: url('DePixel-Schmal.eot?#iefix') format('embedded-opentype'),
+        url('DePixel-Schmal.woff2') format('woff2'),
+        url('DePixel-Schmal.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
