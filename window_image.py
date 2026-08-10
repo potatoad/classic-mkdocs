@@ -20,7 +20,6 @@ class WindowImageProcessor(Treeprocessor):
             index = list(parent).index(child)
             filepath = child.attrib.get("src", "image")
             filename = urllib.parse.unquote(Path(filepath).name).replace(" ", "_")
-            print(f"{index} - {filename}")
 
             # Create the outer "window" div
             window_div = etree.Element(

@@ -1,7 +1,25 @@
+/*
+d888888b .88b  d88. d8888b.  .d88b.  d8888b. d888888b .d8888. 
+  `88'   88'YbdP`88 88  `8D .8P  Y8. 88  `8D `~~88~~' 88'  YP 
+   88    88  88  88 88oodD' 88    88 88oobY'    88    `8bo.   
+   88    88  88  88 88~~~   88    88 88`8b      88      `Y8b. 
+  .88.   88  88  88 88      `8b  d8' 88 `88.    88    db   8D 
+Y888888P YP  YP  YP 88       `Y88P'  88   YD    YP    `8888Y' 
+*/
+
 @import url("layout.css");
 @import url("macos9/theme.css");
 @import url("macos9/skins/blueberry-oxygen.css");
 @import url("../fonts/fonts.css");
+
+/* 
+d8888b.  .d8b.  .d8888. d888888b  .o88b. 
+88  `8D d8' `8b 88'  YP   `88'   d8P  Y8 
+88oooY' 88ooo88 `8bo.      88    8P      
+88~~~b. 88~~~88   `Y8b.    88    8b      
+88   8D 88   88 db   8D   .88.   Y8b  d8 
+Y8888P' YP   YP `8888Y' Y888888P  `Y88P' 
+*/
 
 body {
   font-family: system-ui;
@@ -11,24 +29,103 @@ body {
 }
 
 body.use-preferred-font {
-  font-family: var(--preferred-font),  'Helvetica', system-ui;
+  font-family: var(--preferred-font), "Helvetica", system-ui;
   font-size: 1rem;
 }
 
-#toolbar {
-  position: sticky;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-  overflow-y: auto;
-  font-family: "DePixel";
-  font-weight: bold;
+.zero-height {
+  height: 0;
 }
 
-.search-form {
+/* 
+db       .d8b.  db    db  .d88b.  db    db d888888b 
+88      d8' `8b `8b  d8' .8P  Y8. 88    88 `~~88~~' 
+88      88ooo88  `8bd8'  88    88 88    88    88    
+88      88~~~88    88    88    88 88    88    88    
+88booo. 88   88    88    `8b  d8' 88b  d88    88    
+Y88888P YP   YP    YP     `Y88P'  ~Y8888P'    YP    
+*/
+
+main {
+  max-width: 1024px;
+}
+
+main > .window-body {
+  overflow: auto;
+}
+
+.top-panel {
   display: flex;
-  gap: 5px;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 8px;
+}
+
+.site-name {
+  flex-grow: 1;
+}
+
+.main-container li:not(:last-of-type) {
+  margin-bottom: 0.33rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-col {
+  align-self: flex-start;
+  width: 300px;
+}
+
+.mid-col {
+  align-self: stretch;
+  width: 960px;
+}
+
+.right-col {
+  align-self: flex-start;
+  width: 350px;
+}
+
+#sidebar {
+  position: fixed;
+}
+
+/*
+d888888b db    db d8888b.  .d88b.   d888b  d8888b.  .d8b.  d8888b. db   db db    db 
+`~~88~~' `8b  d8' 88  `8D .8P  Y8. 88' Y8b 88  `8D d8' `8b 88  `8D 88   88 `8b  d8' 
+   88     `8bd8'  88oodD' 88    88 88      88oobY' 88ooo88 88oodD' 88ooo88  `8bd8'  
+   88       88    88~~~   88    88 88  ooo 88`8b   88~~~88 88~~~   88~~~88    88    
+   88       88    88      `8b  d8' 88. ~8~ 88 `88. 88   88 88      88   88    88    
+   YP       YP    88       `Y88P'   Y888P  88   YD YP   YP 88      YP   YP    YP     
+*/
+
+#preferred-font {
+}
+
+#preferred-font::after {
+  content: "(" var(--preferred-font) ")";
+  display: inline;
+}
+
+.title-bar-text {
+  width: 0;
+  overflow: auto;
+  font-family: "DePixel";
+  font-size: 11px !important;
+}
+
+a {
+  color: #00c;
+  text-decoration: none;
 }
 
 h1,
@@ -71,59 +168,20 @@ p {
   font-style: normal;
 }
 
-#preferred-font {
-}
-
-#preferred-font::after {
-  content: "(" var(--preferred-font) ")";
-  display: inline;
-}
-
-main {
-  max-width: 1024px;
-}
-
-main > .window-body {
-  overflow: auto;
-}
-
-.image-window {
-  margin: 10px auto;
-}
-
-.window-image {
-  line-height: 0;
-  font-size: 0;
-}
-
-.top-panel {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: stretch;
-  gap: 8px;
-}
-
-.title-bar-text {
-  width: 0;
-  overflow: auto;
+#toolbar {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  overflow-y: auto;
   font-family: "DePixel";
-  font-size: 11px !important;
-
+  font-weight: bold;
 }
 
-.site-name {
-  flex-grow: 1;
-}
-
-.main-container ul {
-  padding-left: 2rem;
-}
-
-.main-container li:not(:last-of-type){
-  margin-bottom: 0.33rem;
+.search-form {
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
 details {
@@ -136,6 +194,57 @@ details > summary {
   user-select: none;
   margin-bottom: 4px;
 }
+
+#toc-window li {
+  padding: 1rem 0.5rem;
+}
+
+#toc-window li::after {
+  padding-top: 1rem;
+}
+
+.main-container ul {
+  padding-left: 2rem;
+}
+
+.list ul[role="tree"] .icon > .icon-label {
+  text-align: left;
+}
+
+/*
+d888888b .88b  d88.  .d8b.   d888b  d88888b .d8888. 
+  `88'   88'YbdP`88 d8' `8b 88' Y8b 88'     88'  YP 
+   88    88  88  88 88ooo88 88      88ooooo `8bo.   
+   88    88  88  88 88~~~88 88  ooo 88~~~~~   `Y8b. 
+  .88.   88  88  88 88   88 88. ~8~ 88.     db   8D 
+Y888888P YP  YP  YP YP   YP  Y888P  Y88888P `8888Y' 
+*/
+
+p > img {
+  display: block;
+}
+
+.image-window {
+  margin: 10px auto;
+}
+
+.window-image {
+  line-height: 0;
+  font-size: 0;
+}
+
+div .window-body {
+  overflow: hidden;
+}
+
+/*
+.88b  d88. d88888b d8888b. d888888b  .d8b.  
+88'YbdP`88 88'     88  `8D   `88'   d8' `8b 
+88  88  88 88ooooo 88   88    88    88ooo88 
+88  88  88 88~~~~~ 88   88    88    88~~~88 
+88  88  88 88.     88  .8D   .88.   88   88 
+YP  YP  YP Y88888P Y8888D' Y888888P YP   YP 
+*/
 
 @media screen and (min-width: 750px) {
   section {
@@ -150,61 +259,4 @@ details > summary {
   section > div {
     flex-grow: 1;
   }
-}
-
-a {
-  color: #00c;
-  text-decoration: none;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.left-col {
-  align-self: flex-start;
-  width: 300px;
-}
-
-.mid-col {
-  align-self: stretch;
-  width: 960px;
-}
-
-.right-col {
-  align-self: flex-start;
-  width: 350px;
-}
-
-#sidebar {
-  position: fixed;
-}
-
-#toc-window li {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-#toc-window li::after{
-  padding-top: 1rem;
-}
-
-.list ul[role="tree"] .icon > .icon-label {
-  text-align: left;
-}
-
-p > img {
-  display: block;
-}
-
-div .window-body {
-  overflow: hidden;
-}
-
-.zero-height {
-  height: 0;
 }
